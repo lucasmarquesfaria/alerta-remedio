@@ -1,18 +1,14 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import type { Medication } from "@/app/page"
 
 interface AlertSystemProps {
-  medications: Medication[]
   activeAlarm: Medication | null
   setActiveAlarm: (medication: Medication | null) => void
 }
 
-export default function AlertSystem({ medications, activeAlarm, setActiveAlarm }: AlertSystemProps) {
-  const [notificationsEnabled, setNotificationsEnabled] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
+export default function AlertSystem({ activeAlarm, setActiveAlarm }: AlertSystemProps) {
   useEffect(() => {
     if (activeAlarm) {
       // Exibe um alerta
